@@ -1,5 +1,8 @@
 /* The navigation bar */
-
+*{
+  overflow: hidden;
+  margin: 0;
+}
 .navbar {
   overflow: hidden;
   background-color: #ff0000;
@@ -30,10 +33,13 @@
   color: black;
 }
 
-/* Main content */
 .main {
- display: flexbox;
- flex-direction: row;
+ display: flex;
+ margin-top: 70px;
+ width: 100%;
+ height: 100%;
+ 
+ 
 }
 
 body {
@@ -43,18 +49,50 @@ body {
 }
 
 .container {
-  display: inline-block;
-  margin: 100px auto 0;
-  top: 0%;
+  display: flex;
+  /* padding: 100px; */
+  background-color: blueviolet;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  
+ 
 }
 
 .sidebar {
   display: inline-block;
   max-width: 150px;
   background-color: aqua;
-  margin-top: 70px;
+ 
 }
 button{
   margin: 20px;
   padding: 20px;
+}
+.folder{
+  background-color: #f2f2f2;
+  font-size: 2pc;
+  height: 50px;
+  
+}
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+}
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+.form{
+  padding: 10px;
 }

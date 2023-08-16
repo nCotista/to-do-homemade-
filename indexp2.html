@@ -18,16 +18,42 @@
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
   </div>
+  
 
   <div class="main">
     <div class="sidebar" id="sidebar">
-      <button id="createCanvas"> + </button>
-    
+
+      <button id="createCanvas"> FOlder </button>
+      <button id="createTask" onclick="addbt()"> Task </button>
+      <button id="createNode"> Note </button>
+
+
+    </div>
+    <div id="mydiv">
+      <div id="mydivheader">Click here to move</div>
+      <p>Move</p>
+      <p>this</p>
+      <p>DIV</p>
     </div>
 
-    <div class="container" id="container"> </div>
-
+    <div class="container" id="container">
+      
+    </div>
+    <div class="slx">
+      <button onclick="document.getElementById('modal').style.display='block'">+</button>
+      <form class="form">
+        <label for="name">Project Name:</label>
+        <input type="text" value='work 1' id="Namefolder"><br>
+        <label for="descript"> Description:</label> 
+        <input type="text" value='Anything?' id="Desciption"><br>
+        <input type="submit"  value="Submit">
+      </form>
+    </div>
   </div>
+
+
+</div>
+
 </body>
 
 </html>
