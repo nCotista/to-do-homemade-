@@ -8,6 +8,7 @@ function createCanvas() {
     dCanvas.setAttribute('id',i)
     dCanvas.setAttribute("class",'folder')
     dBuilt.appendChild(dCanvas) 
+    return i;
 }
 // 
 // function addbt() {
@@ -18,7 +19,7 @@ function createCanvas() {
 //     dCanvas.setAttribute('id','1header')
 //     dBuilt.appendChild(dCanvas)
 // }
-dragElement(document.getElementById("mydiv"));
+dragElement(document.getElementById(i));
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
