@@ -1,23 +1,22 @@
-/* The navigation bar */
-*{
+* {
   overflow: hidden;
   margin: 0;
 }
+
 .navbar {
   overflow: hidden;
   background-color: #ff0000;
   position: fixed;
-  /* Set the navbar to fixed position */
+
   top: 0;
-  /* Position the navbar at the top of the page */
+
   width: 100%;
-  /* Full width */
+
   left: 0;
   padding: 10px;
   font-size: 20;
 }
 
-/* Links inside the navbar */
 .navbar a {
   float: left;
   display: block;
@@ -27,19 +26,19 @@
   text-decoration: none;
 }
 
-/* Change background on mouse-over */
+
 .navbar a:hover {
   background: #ddd;
   color: black;
 }
 
 .main {
- display: flex;
- margin-top: 70px;
- width: 100%;
- height: 100%;
- 
- 
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+
+
 }
 
 body {
@@ -56,42 +55,142 @@ body {
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  
- 
+
+
 }
 
 .sidebar {
   display: inline-block;
   max-width: 150px;
   background-color: aqua;
- 
+
 }
-button{
+
+button {
   margin: 20px;
   padding: 20px;
 }
-.folder{
+
+/* .folder{
   background-color: #f2f2f2;
   font-size: 2pc;
   height: 50px;
   position: absolute;
 
   
-}
+} */
 
-#mydiv {
-  position: absolute;
+/* .folder {
   z-index: 9;
-  background-color: #f1f1f1;
+  background-color: #a71e1e;
   text-align: center;
   border: 1px solid #d3d3d3;
+  padding: 20px;
+
 }
 
-#mydivheader {
+.folderheader {
   padding: 10px;
   cursor: move;
   z-index: 10;
   background-color: #2196F3;
   color: #fff;
+} */
+
+.form1 {
+  display: none;
 }
 
+.formmodal {
+  display: none;
+}
+
+.slx {
+  background-color: #2196F3;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Charm&family=Montserrat:wght@300&family=Poppins:wght@200&family=Roboto:wght@100&display=swap');
+
+.editor {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: white;
+
+}
+
+.Note {
+  background-color: #ddd;
+  position: absolute;
+}
+
+#elementid {
+  display: none;
+}
+
+.folderhtml {
+  background-color: #ddd;
+}
+
+
+
+
+
+/* ////////////////////////////////////////// */
+.drag {
+  position: relative;
+  min-height: 300px;
+  margin: 40px;
+}
+
+.wrapper {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: space-around;
+  color: #BBB;
+}
+
+ul {
+  width: 40%;
+  min-height: 300px;
+  padding: 18px;
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+li {
+  padding: 5% 2%;
+  background-color: #fff;
+  text-align: center;
+  transition: 0.3s ease-out;
+  margin-bottom: 15px;
+  width: calc(100%/2 - 30px);
+  float: left;
+  margin: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 3px;
+  cursor: move;
+}
+
+&:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+p {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+
+li:active {
+  background-color: #ed328f;
+  color: white;
+}

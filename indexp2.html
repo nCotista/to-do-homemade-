@@ -18,111 +18,80 @@
 
   <div class="main">
     <div class="sidebar" id="sidebar">
-
-      <button id="createCanvas"> FOlder </button>
+      <button id="btid"> FOlder </button>
       <button id="createTask" onclick="addbt()"> Task </button>
-      <button id="createNode" onclick="alert(console.log(i));"> Note </button>
+      <button id="toggleButton"> Note </button>
 
     </div>
-    
-    <!-- <div id="mydiv">
-      <div id="mydivheader">Click here to move</div>
-      <p>Move</p>
-      <p>this</p>
-      <p>DIV</p>
-    </div> -->
+
+
+    <div class="fixsetting" id="fix">
+      <form class="form1" id="fixform">
+        <label for="newnamefix">New name</label>
+        <input type="text" value="newnamefix" id="newnamefix">
+        <input type="button" value="Close" id="closefix">
+      </form>
+    </div>
 
     <div class="container" id="container">
+      <div id="folderhtml" class="folderhtml"></div>
+      <div class="folderforum" id="form">
+        <form class="formmodal" id="modal">
+
+          <label for="Namefolder">Project Name:</label>
+          <input type="text" value='New Project' id="Namefolder"><br>
+
+          <label for="des">Description:</label>
+          <input type="text" value='Anything?' id="des"><br>
+
+          <input type="button" value="Create" id="createform">
+        </form>
+      </div>
+      <div class="Note" id="elementId">
+        
+        <button id="boldButton">Bold</button>
+        <button id="italicButton">Italic</button>
+        <input type="color" id="colorPicker">
+        <button id="colorButton">Change Color</button>
+        <button id="mid">mid</button>
+        <button id="start">start</button>
+        <button id="end">end</button>
+        <button id="normal">normal</button>
+        <button id="size">size</button>
+        <input type="number" value="16" id="fontNum">
+        <select id="fontSelect">
+          <option value="Arial, sans-serif">Arial</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="'Courier New', monospace">Courier New</option>
+          <option value="'Montserrat', sans-serif">Montserrat</option>
+          <option value="'Charm', cursive">Charm</option>
+          <option value="'Poppins', sans-serif">Poppins</option>
+          <option value="'Roboto', sans-serif">Roboto</option>
+        </select>
+        <div class="editor" contenteditable="true">
+          <p>test</p>
+  
+        </div>
+  
+      </div>
 
     </div>
     
-    </div>
-    <div class="textcontainer">
-      <div class="options">
-        <!-- Text Format -->
-        <button id="bold" class="option-button format">
-          <i class="fa-solid fa-bold"></i>
-        </button>
-        <button id="italic" class="option-button format">
-          <i class="fa-solid fa-italic"></i>
-        </button>
-        <button id="underline" class="option-button format">
-          <i class="fa-solid fa-underline"></i>
-        </button>
-        <button id="strikethrough" class="option-button format">
-          <i class="fa-solid fa-strikethrough"></i>
-        </button>
-        <button id="superscript" class="option-button script">
-          <i class="fa-solid fa-superscript"></i>
-        </button>
-        <button id="subscript" class="option-button script">
-          <i class="fa-solid fa-subscript"></i>
-        </button>
-        <!-- List -->
-        <button id="insertOrderedList" class="option-button">
-          <div class="fa-solid fa-list-ol"></div>
-        </button>
-        <button id="insertUnorderedList" class="option-button">
-          <i class="fa-solid fa-list"></i>
-        </button>
-        <!-- Undo/Redo -->
-        <button id="undo" class="option-button">
-          <i class="fa-solid fa-rotate-left"></i>
-        </button>
-        <button id="redo" class="option-button">
-          <i class="fa-solid fa-rotate-right"></i>
-        </button>
-        <!-- Link -->
-        <button id="createLink" class="adv-option-button">
-          <i class="fa fa-link"></i>
-        </button>
-        <button id="unlink" class="option-button">
-          <i class="fa fa-unlink"></i>
-        </button>
-        <!-- Alignment -->
-        <button id="justifyLeft" class="option-button align">
-          <i class="fa-solid fa-align-left"></i>
-        </button>
-        <button id="justifyCenter" class="option-button align">
-          <i class="fa-solid fa-align-center"></i>
-        </button>
-        <button id="justifyRight" class="option-button align">
-          <i class="fa-solid fa-align-right"></i>
-        </button>
-        <button id="justifyFull" class="option-button align">
-          <i class="fa-solid fa-align-justify"></i>
-        </button>
-        <button id="indent" class="option-button spacing">
-          <i class="fa-solid fa-indent"></i>
-        </button>
-        <button id="outdent" class="option-button spacing">
-          <i class="fa-solid fa-outdent"></i>
-        </button>
-        <!-- Headings -->
-        <select id="formatBlock" class="adv-option-button">
-          <option value="H1">H1</option>
-          <option value="H2">H2</option>
-          <option value="H3">H3</option>
-          <option value="H4">H4</option>
-          <option value="H5">H5</option>
-          <option value="H6">H6</option>
-        </select>
-        <!-- Font -->
-        <select id="fontName" class="adv-option-button"></select>
-        <select id="fontSize" class="adv-option-button"></select>
-        <!-- Color -->
-        <div class="input-wrapper">
-          <input type="color" id="foreColor" class="adv-option-button" />
-          <label for="foreColor">Font Color</label>
-        </div>
-        <div class="input-wrapper">
-          <input type="color" id="backColor" class="adv-option-button" />
-          <label for="backColor">Highlight Color</label>
-        </div>
+
+    <!-- /* ////////////////////////////////////////// */ -->
+    <div class="drag">
+      <div class="wrapper">
+        <ul class="dropzone">
+          <li draggable="true">
+            <p>5</p>
+          </li>
+        </ul>
+        <ul class="dropzone"></ul>
       </div>
-      <div id="text-input" contenteditable="true"></div>
     </div>
+
   </div>
+
 
 
   </div>

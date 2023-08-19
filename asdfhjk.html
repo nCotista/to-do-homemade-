@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Editor</title>
+  <style>
+    .editor {
+      border: 1px solid #ccc;
+      padding: 10px;
+
+    }
+    p{
+        /* text-align: center; */
+    }
+  </style>
+</head>
+<body>
+  <div class="editor" contenteditable="true">
+    <p>test</p>
+    <!-- Contenteditable area for editing text -->
+  </div>
+  <button id="boldButton">Bold</button>
+  <button id="italicButton">Italic</button>
+  <input type="color" id="colorPicker">
+  <button id="colorButton">Change Color</button>
+  <button id="alli">alli</button>
+  <script>
+    const editor = document.querySelector('.editor');
+    const boldButton = document.getElementById('boldButton');
+    const italicButton = document.getElementById('italicButton');
+    const colorPicker = document.getElementById('colorPicker');
+    const colorButton = document.getElementById('colorButton');
+    const alliButton = document.getElementById("alli")
+
+    boldButton.addEventListener('click', () => applyFormatting('strong'));
+    italicButton.addEventListener('click', () => applyFormatting('em'));
+    colorButton.addEventListener('click', changeTextColor);
+    alliButton.addEventListener("click",() => allitext)
+
+    function applyFormatting(tagName) {
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const selectedText = range.extractContents();
+  const formattedText = document.createElement(tagName);
+  formattedText.innerHTML = selectedText.textContent;
+  formattedText.setAttribute("id", "forreplace");
+
+  let re = document.getElementById('forreplace');
+  if (re && re.parentNode === editor) { // Check if re is a child of editor
+    editor.replaceChild(formattedText, re);
+  } else {
+    range.insertNode(formattedText);
+  }
+}
+    function changeTextColor() {
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      const selectedText = range.extractContents();
+      const color = colorPicker.value;
+      const coloredText = document.createElement('span');
+      coloredText.style.color = color;
+      coloredText.appendChild(selectedText);
+      range.insertNode(coloredText);
+    }
+    function allitext() {
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const selectedText = range.extractContents();
+
+  const centeredText = document.createElement('span');
+  centeredText.style.textAlign = 'center';
+  centeredText.appendChild(selectedText);
+
+  range.insertNode(centeredText);
+}
+  </script>
+</body>
+</html>
