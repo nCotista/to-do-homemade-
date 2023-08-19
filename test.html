@@ -1,52 +1,22 @@
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TO DO</title>
-  <script src="main.js" type="module"></script>
-  <!-- <script type="text/javascript" src="app.js"></script> -->
-
-  <link rel="stylesheet" href="style.css">
-
-
-</head>
-
-<body>
-  <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <div class="main">
-    <div class="sidebar" id="sidebar">
-<<<<<<< Updated upstream
-      <button id="createCanvas"> + </button>
-    
-    </div>
-
-    <div class="container" id="container"> </div>
-=======
-
-      <button id="createCanvas"> FOlder </button>
-      <button id="createTask" onclick="addbt()"> Task </button>
-      <button id="createNode" onclick="alert(console.log(i));"> Note </button>
-
-    </div>
-    
-    <!-- <div id="mydiv">
-      <div id="mydivheader">Click here to move</div>
-      <p>Move</p>
-      <p>this</p>
-      <p>DIV</p>
-    </div> -->
-
-    <div class="container" id="container">
-
-    </div>
-    
-    </div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich Text Editor</title>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
     <div class="textcontainer">
       <div class="options">
         <!-- Text Format -->
@@ -132,11 +102,18 @@
       </div>
       <div id="text-input" contenteditable="true"></div>
     </div>
-  </div>
-
->>>>>>> Stashed changes
-
-  </div>
-</body>
-
+    <div class="slx" id="form">
+      <button id="btid">+</button>
+      <form class="form" id="modal" >
+        <label for="name">Project Name:</label>
+        <input type="text" value='work 1' id="Namefolder"><br>
+        <label for="descript"> Description:</label>
+        <input type="text" value='Anything?' id="des"><br>
+        <input type="button" value="create" id="createform">
+      </form>
+      <div id="folderhtml" class="folderhtml">
+      </div>
+    <!--Script-->
+    <script src="test.js"></script>
+  </body>
 </html>
