@@ -1,7 +1,5 @@
-import {clickButton,dragElement} from './script1.js'
+import {clickButton} from './script1.js'
 
 
-<<<<<<< Updated upstream
 clickButton()
-=======
-clickButton()
+// dragElement()
