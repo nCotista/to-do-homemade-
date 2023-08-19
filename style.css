@@ -69,11 +69,16 @@ body {
 button{
   margin: 20px;
   padding: 20px;
+<<<<<<< Updated upstream
+}
+=======
 }
 .folder{
   background-color: #f2f2f2;
   font-size: 2pc;
   height: 50px;
+  position: absolute;
+
   
 }
 
@@ -91,8 +96,4 @@ button{
   z-index: 10;
   background-color: #2196F3;
   color: #fff;
-}
-
-.form{
-  padding: 10px;
 }
