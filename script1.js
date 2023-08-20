@@ -1,7 +1,6 @@
 export {
-  clickButton, dragElement,
-  clickButton1,
-  clickButton2,
+  clickButton, 
+  clickButton1,  clickButton2,
   clickButton4,
   clickButton5,
   changeTextColor,
@@ -9,13 +8,11 @@ export {
   endText,
   startText,
   sizeText,
-  toggleDisplay
+  toggleDisplay,
+  ontaskclick,
+  closetaskclick,
+  createtaskfromdiv
 }
-
-
-
-let Name = []
-
 
 
 function offmodal() {
@@ -98,7 +95,6 @@ const clickButton2 = () => {
 function folder3() {
   let namef = document.getElementById('Namefolder').value;
   let des = document.getElementById('des').value;
-
   let folder = document.getElementById('folderhtml');
   let i = folder.childElementCount + 1;
 
@@ -107,16 +103,20 @@ function folder3() {
 
   let folderDiv = document.createElement('div'); // Create a div for each folder
   folderDiv.setAttribute('id', folderId);
+  folderDiv.setAttribute('class', "wrapper")
+
   folder.appendChild(folderDiv);
 
   let projectNameDiv = document.createElement('div'); // Create a div for project name
   projectNameDiv.textContent = `${namef}`;
   projectNameDiv.setAttribute('id', `folder-${i}`);
+  projectNameDiv.setAttribute('class', 'name')
   folderDiv.appendChild(projectNameDiv);
 
   let descriptionDiv = document.createElement('div'); // Create a div for description
   descriptionDiv.textContent = ` ${des}`;
   descriptionDiv.setAttribute('id', `des-${i}`);
+  descriptionDiv.setAttribute('class', 'descip');
   folderDiv.appendChild(descriptionDiv);
 
   let settingButton = document.createElement('button'); // Create the Setting button
@@ -125,9 +125,24 @@ function folder3() {
   folderDiv.appendChild(settingButton);
   settingButton.addEventListener('click', fixon);
 
-  const projectname = Name.push(`button-${i}`)
-  console.log(Name);
-  return i;
+  let dropZoneDiv = document.createElement('div');
+  dropZoneDiv.setAttribute('class', 'dropzone')
+  folderDiv.appendChild(dropZoneDiv)
+
+  // const projectname = Name.push(`button-${i}`)
+  // console.log(Name);
+  // for (let i of Name){
+  //   let iValue = i.toString();
+  //   console.log(iValue);
+
+  // }
+  let buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    button.addEventListener('click', event => {
+      const clickedButtonId = event.target.id;
+      return clickedButtonId;
+    });
+  });
 
 }
 
@@ -144,26 +159,12 @@ function fixon() {
 const clickButton4 = () => {
   const test = document.getElementById('closefix')
   test.addEventListener('click', fixoff)
+
 }
 const clickButton5 = () => {
   const test = document.getElementById('closefix');
   if (test) { test.addEventListener('click', getvaluechangename) }
 };
-// function getvaluechangename(){
-//   let folder = document.getElementById('folderhtml');
-
-//  let i = folder.childElementCount 
-
-//   let newName = document.getElementById('newnamefix').value
-//   let newName1 = document.createElement('p')
-//   newName1.setAttribute('id', `folder-${i} 1`);
-//   newName1.textContent=(`${newName}`)
-//   folder.appendChild(newName1)
-
-//   let ref = document.querySelector(`.folder-${i}`)
-//   folder.replaceChild(newName1,ref)
-// }
-
 function getvaluechangename() {
   let newName = document.getElementById('newnamefix').value;
   console.log('New name:', newName);
@@ -184,7 +185,9 @@ function getvaluechangename() {
     buttonElement.textContent = newName;
     console.log('Button text updated:', newName);
   }
+  console.log('Clicked button ID:', clickedButtonId);
 }
+
 
 
 
@@ -199,47 +202,47 @@ function getvaluechangename() {
 //     dBuilt.appendChild(dCanvas)
 // }
 
-const folderElements = document.getElementsByClassName('folder');
+// const folderElements = document.getElementsByClassName('folder');
 
-for (const folderElement of folderElements) {
-  dragElement(folderElement);
-}
-function dragElement(elmnt) {
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+// for (const folderElement of folderElements) {
+//   dragElement(folderElement);
+// }
+// function dragElement(elmnt) {
+//   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-  elmnt.onmousedown = dragMouseDown;
+//   elmnt.onmousedown = dragMouseDown;
 
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+//   function dragMouseDown(e) {
+//     e = e || window.event;
+//     e.preventDefault();
+//     // get the mouse cursor position at startup:
+//     pos3 = e.clientX;
+//     pos4 = e.clientY;
+//     document.onmouseup = closeDragElement;
+//     // call a function whenever the cursor moves:
+//     document.onmousemove = elementDrag;
+//   }
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+//   function elementDrag(e) {
+//     e = e || window.event;
+//     e.preventDefault();
+//     // calculate the new cursor position:
+//     pos1 = pos3 - e.clientX;
+//     pos2 = pos4 - e.clientY;
+//     pos3 = e.clientX;
+//     pos4 = e.clientY;
+//     // set the element's new position:
+//     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+//     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+//   }
 
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
+//   function closeDragElement() {
+//     /* stop moving when mouse button is released:*/
+//     document.onmouseup = null;
+//     document.onmousemove = null;
+//   }
+// }
 
 // function newtask(){
 
@@ -275,6 +278,51 @@ function dragElement(elmnt) {
 // function changeNameTaskBar(){
 //     const taskbar = document.getElementById('h1')
 // }
+
+function ontask() {
+  let ontask = document.getElementById('taskforum');
+  ontask.setAttribute('style', 'display:block');
+}
+
+function offtask() {
+  let offtask = document.getElementById('taskforum');
+  offtask.setAttribute('style', 'display:none')
+  let info = document.getElementById('taskname').value
+  console.log(info);;
+}
+
+const ontaskclick = () => {
+  let ontaskclick = document.getElementById('createTask');
+  ontaskclick.addEventListener('click', ontask);
+};
+function createtask(){
+  let info = document.getElementById('taskname').value
+  console.log(info);
+  let createtask = document.getElementById('targetid')
+  let creatediv =document.createElement('li')
+  creatediv.setAttribute('draggable','true')
+  creatediv.textContent = `${info}`
+  createtask.appendChild(creatediv)
+}
+
+const closetaskclick = () => {
+  let closetaskclick = document.getElementById('closetask');
+  closetaskclick.addEventListener('click', offtask);
+};
+const createtaskfromdiv = () => {
+  let createtaskfromdiv = document.getElementById('closetask')
+  createtaskfromdiv.addEventListener('click',createtask)
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  ontaskclick();
+  closetaskclick();
+  createtaskfromdiv()
+});
+
+
 const editor = document.querySelector('.editor');
 const boldButton = document.getElementById('boldButton');
 const italicButton = document.getElementById('italicButton');
@@ -412,7 +460,7 @@ function toggleDisplay(elementId) {
     element.style.display = (element.style.display === 'none') ? 'block' : 'none';
   }
 }
-(function() {
+(function () {
   let dragged, listener;
 
   console.clear();
@@ -430,7 +478,7 @@ function toggleDisplay(elementId) {
     return console.log("end !");
   });
 
-  listener("dragover", function(event) {
+  listener("dragover", function (event) {
     return event.preventDefault();
   });
 

@@ -19,7 +19,7 @@
   <div class="main">
     <div class="sidebar" id="sidebar">
       <button id="btid"> FOlder </button>
-      <button id="createTask" onclick="addbt()"> Task </button>
+      <button id="createTask"> Task </button>
       <button id="toggleButton"> Note </button>
 
     </div>
@@ -77,17 +77,28 @@
 
     </div>
     
-
     <!-- /* ////////////////////////////////////////// */ -->
     <div class="drag">
-      <div class="wrapper">
-        <ul class="dropzone">
-          <li draggable="true">
+      <div class="wrapper" >
+        <ul class="dropzone" id="targetid" >
+          <!-- <li draggable="true" >
             <p>5</p>
+          
           </li>
+          <li draggable="true">
+            <p>6</p>
+          
+          </li> -->
         </ul>
         <ul class="dropzone"></ul>
       </div>
+    </div>
+    <div class="taskformdiv">
+      <form id="taskforum" class="taskform">
+        <label for="taskname">Task</label>
+        <input type="text" value="nameTask" id="taskname">
+        <input type="button" value="close" id="closetask">
+      </form>
     </div>
 
   </div>

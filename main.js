@@ -4,7 +4,10 @@ import {clickButton,clickButton1,clickButton2,clickButton4,clickButton5,
     endText,
     startText,
     sizeText,
-    toggleDisplay} from './script1.js'
+    toggleDisplay,
+    ontaskclick,
+closetaskclick,
+createtaskfromdiv} from './script1.js'
 
 
 clickButton()
@@ -19,3 +22,6 @@ endText()
 startText()
 sizeText()
 toggleDisplay()
+ontaskclick()
+closetaskclick()
+createtaskfromdiv()
