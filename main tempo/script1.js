@@ -2,7 +2,6 @@ export {
   clickButton, 
   clickButton1,  clickButton2,
   clickButton4,
-  clickButton5,
   changeTextColor,
   midText,
   endText,
@@ -11,7 +10,8 @@ export {
   toggleDisplay,
   ontaskclick,
   closetaskclick,
-  createtaskfromdiv
+  createtaskfromdiv,
+  dragElement
 }
 
 
@@ -40,111 +40,46 @@ const clickButton2 = () => {
   test.addEventListener('click', folder3);
 };
 
-// function folder() {
-//   let namef = document.getElementById('Namefolder').value;
-//   // let des = document.getElementById('des').value;
 
-//   let folder = document.getElementById('folderhtml');
-
-//   let i = folder.childElementCount+1
-//   let dCanvas = document.createElement('div');
-//   dCanvas.textContent = `${namef}`;
-//   dCanvas.setAttribute('id', `folder-${i}`);
-//   // let tCanvas = document.createElement('p');
-//   // tCanvas.textContent = `${des}`;
-//   // tCanvas.setAttribute('id', `description-${i}`);
-
-//   // let fCanvas = document.createElement('button');
-//   // fCanvas.textContent = 'Setting';
-//   // fCanvas.setAttribute('id', `folder-${i}` );
-//   folder.appendChild(dCanvas);
-//   // folder.appendChild(tCanvas)
-//   // folder.appendChild(fCanvas);
-//   // fCanvas.addEventListener('click', fixon); 
-//   folder1()
-//   folder2()
-
-//   return i;
-
-// }
-// function folder1(){
-//   let des = document.getElementById('des').value;
-//   let folder = document.getElementById('folderhtml');
-//   let i = folder.childElementCount+1
-//   let desindiv = document.getElementById(`folder-${i}`)
-//   let tCanvas = document.createElement('p');
-//   tCanvas.textContent = `${des}`
-//   tCanvas.setAttribute('id', `description-${i}`);
-
-//   if(desindiv){desindiv.appendChild(tCanvas)}
-
-// }
-// function folder2(){
-//   let folder = document.getElementById('folderhtml');
-//   let i = folder.childElementCount+1
-//   let desindiv = document.getElementById(`folder-${i}`)
-//   let fCanvas = document.createElement('button');
-//   fCanvas.textContent = 'setting'
-//   fCanvas.setAttribute('id', `buttton-${i}`);
-
-//   if(desindiv){desindiv.appendChild(fCanvas)
-//     fCanvas.addEventListener('click', fixon); }
-
-
-// }
 function folder3() {
   let namef = document.getElementById('Namefolder').value;
   let des = document.getElementById('des').value;
   let folder = document.getElementById('folderhtml');
   let i = folder.childElementCount + 1;
 
-
   let folderId = `input-${i}`;
 
-  let folderDiv = document.createElement('div'); // Create a div for each folder
+  let folderDiv = document.createElement('div');
   folderDiv.setAttribute('id', folderId);
-  folderDiv.setAttribute('class', "wrapper")
+  folderDiv.setAttribute('class', 'wrapper');
 
   folder.appendChild(folderDiv);
 
-  let projectNameDiv = document.createElement('div'); // Create a div for project name
-  projectNameDiv.textContent = `${namef}`;
+  let projectNameDiv = document.createElement('div');
+  projectNameDiv.textContent = namef;
   projectNameDiv.setAttribute('id', `folder-${i}`);
-  projectNameDiv.setAttribute('class', 'name')
+  projectNameDiv.setAttribute('class', 'name');
   folderDiv.appendChild(projectNameDiv);
 
-  let descriptionDiv = document.createElement('div'); // Create a div for description
-  descriptionDiv.textContent = ` ${des}`;
+  let descriptionDiv = document.createElement('div');
+  descriptionDiv.textContent = des;
   descriptionDiv.setAttribute('id', `des-${i}`);
   descriptionDiv.setAttribute('class', 'descip');
   folderDiv.appendChild(descriptionDiv);
 
-  let settingButton = document.createElement('button'); // Create the Setting button
+  let dropZoneDiv = document.createElement('div');
+  dropZoneDiv.setAttribute('class', 'dropzone');
+  folderDiv.appendChild(dropZoneDiv);
+
+  let settingButton = document.createElement('button');
   settingButton.textContent = 'Setting';
   settingButton.setAttribute('id', `button-${i}`);
   folderDiv.appendChild(settingButton);
   settingButton.addEventListener('click', fixon);
-
-  let dropZoneDiv = document.createElement('div');
-  dropZoneDiv.setAttribute('class', 'dropzone')
-  folderDiv.appendChild(dropZoneDiv)
-
-  // const projectname = Name.push(`button-${i}`)
-  // console.log(Name);
-  // for (let i of Name){
-  //   let iValue = i.toString();
-  //   console.log(iValue);
-
-  // }
-  let buttons = document.querySelectorAll('button');
-  buttons.forEach(button => {
-    button.addEventListener('click', event => {
-      const clickedButtonId = event.target.id;
-      return clickedButtonId;
-    });
-  });
-
 }
+
+
+
 
 
 function fixoff() {
@@ -161,123 +96,6 @@ const clickButton4 = () => {
   test.addEventListener('click', fixoff)
 
 }
-const clickButton5 = () => {
-  const test = document.getElementById('closefix');
-  if (test) { test.addEventListener('click', getvaluechangename) }
-};
-function getvaluechangename() {
-  let newName = document.getElementById('newnamefix').value;
-  console.log('New name:', newName);
-
-  let folder = document.getElementById('folderhtml');
-  let i = folder.childElementCount;
-  console.log('Child element count:', i);
-
-  if (newName.trim() === '') {
-    alert("Please enter a new name.");
-    return;
-  }
-
-  let buttonElement = document.getElementById(`folder-${i}`);
-  console.log('Button element:', buttonElement);
-
-  if (buttonElement) {
-    buttonElement.textContent = newName;
-    console.log('Button text updated:', newName);
-  }
-  console.log('Clicked button ID:', clickedButtonId);
-}
-
-
-
-
-
-// 
-// function addbt() {
-//     let dBuilt = document.getElementById('1')
-//     let i = dBuilt.childElementCount+1
-//     let dCanvas = document.createElement("div")
-//     dCanvas.textContent =  `+` 
-//     dCanvas.setAttribute('id','1header')
-//     dBuilt.appendChild(dCanvas)
-// }
-
-// const folderElements = document.getElementsByClassName('folder');
-
-// for (const folderElement of folderElements) {
-//   dragElement(folderElement);
-// }
-// function dragElement(elmnt) {
-//   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-//   elmnt.onmousedown = dragMouseDown;
-
-
-//   function dragMouseDown(e) {
-//     e = e || window.event;
-//     e.preventDefault();
-//     // get the mouse cursor position at startup:
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     document.onmouseup = closeDragElement;
-//     // call a function whenever the cursor moves:
-//     document.onmousemove = elementDrag;
-//   }
-
-//   function elementDrag(e) {
-//     e = e || window.event;
-//     e.preventDefault();
-//     // calculate the new cursor position:
-//     pos1 = pos3 - e.clientX;
-//     pos2 = pos4 - e.clientY;
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     // set the element's new position:
-//     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-//     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-//   }
-
-//   function closeDragElement() {
-//     /* stop moving when mouse button is released:*/
-//     document.onmouseup = null;
-//     document.onmousemove = null;
-//   }
-// }
-
-// function newtask(){
-
-// }
-// function on() {
-//     document.getElementById("overlay").style.display = "block";
-//   }
-
-//   function off() {
-//     document.getElementById("overlay").style.display = "none";
-//   }
-// const clickButton = () => {
-//     const test = document.getElementById('createCanvas')
-//     test.addEventListener('click', createCanvas)
-// }
-
-
-
-
-// function createFolder(){
-//     let dFolder = document.createElement("div")
-
-// }
-
-// function createTaskbar(){
-//     const taskbar = document.getElementById('div')
-//     const namebar = document.createElement('h1')
-
-//     document.getElementById('h1').style.border('solid #000000')
-//     namebar.textContent = 'Work 1'
-//     taskbar.appendChild(namebar)
-// }
-// function changeNameTaskBar(){
-//     const taskbar = document.getElementById('h1')
-// }
 
 function ontask() {
   let ontask = document.getElementById('taskforum');
@@ -320,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ontaskclick();
   closetaskclick();
   createtaskfromdiv()
+  clickButton1()
+  clickButton2()
 });
 
 
@@ -351,21 +171,7 @@ fontSelect.addEventListener('change', function () {
   editor.style.fontFamily = selectedFont;
 });
 normalButton.addEventListener('click', normalText)
-// function applyFormatting(tagName) {
-//   const selection = window.getSelection();
-//   const range = selection.getRangeAt(0);
-//   const selectedText = range.extractContents();
-//   const formattedText = document.createElement(tagName);
-//   formattedText.innerHTML = selectedText.textContent;
-//   formattedText.setAttribute("id", "forreplace");
 
-//   let re = document.getElementById('forreplace');
-//   if (re && re.parentNode === editor) { // Check if re is a child of editor
-//     editor.replaceChild(formattedText, re);
-//   } else {
-//     range.insertNode(formattedText);
-//   }
-// }
 function normalText() {
   const selection = window.getSelection();
   const range = selection.getRangeAt(0);
@@ -464,11 +270,8 @@ function toggleDisplay(elementId) {
   let dragged, listener;
 
   console.clear();
-
   dragged = null;
-
   listener = document.addEventListener;
-
   listener("dragstart", (event) => {
     console.log("start !");
     return dragged = event.target;
@@ -493,4 +296,45 @@ function toggleDisplay(elementId) {
 
 }).call(this);
 
+dragElement(document.getElementById("elementId"));
 
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "lak")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "lak").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}

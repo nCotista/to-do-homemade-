@@ -1,4 +1,5 @@
-import {clickButton,clickButton1,clickButton2,clickButton4,clickButton5,
+import {clickButton,clickButton1,clickButton2,clickButton4,
+    // clickButton5,
     changeTextColor,
     midText,
     endText,
@@ -7,15 +8,16 @@ import {clickButton,clickButton1,clickButton2,clickButton4,clickButton5,
     toggleDisplay,
     ontaskclick,
 closetaskclick,
-createtaskfromdiv} from './script1.js'
+createtaskfromdiv,dragElement} from './script1.js'
+
 
 
 clickButton()
-// dragElement()
+dragElement()
 clickButton1()
 clickButton2()
 clickButton4()
-clickButton5()
+// clickButton5()
 changeTextColor()
 midText()
 endText()

@@ -6,19 +6,26 @@
   <title>TO DO</title>
   <script src="main.js" type="module"></script>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
   <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
+    <!-- <span class="material-symbols-rounded"></span> -->
+    <a href="#home"> To Do Homemade</a>
+    <a href="https://edition.cnn.com/">News</a>
+    <a href="https://docs.google.com/document/d/1494SJmfzs-3jk9BOMs8383rSGs_Kp-gYy9RUavzDdtw/edit?usp=sharing">Contact</a>
   </div>
 
 
   <div class="main">
     <div class="sidebar" id="sidebar">
-      <button id="btid"> FOlder </button>
+      <button id="btid"> Folder </button>
       <button id="createTask"> Task </button>
       <button id="toggleButton"> Note </button>
 
@@ -34,6 +41,20 @@
     </div>
 
     <div class="container" id="container">
+
+      <!-- <div class="search-wrapper">
+        <label for="search">Search Users</label>
+        <input type="search" id="search">
+      </div> -->
+
+      <!-- <div class="user-cards"></div>
+      <template data-user-template>
+        <div class="card">
+          <div class="header"></div>
+          <div class="body"></div>
+        </div>
+      </template> -->
+
       <div id="folderhtml" class="folderhtml"></div>
       <div class="folderforum" id="form">
         <form class="formmodal" id="modal">
@@ -48,7 +69,8 @@
         </form>
       </div>
       <div class="Note" id="elementId">
-        
+        <div id="elementIdlak" > Drag!!! </div>
+
         <button id="boldButton">Bold</button>
         <button id="italicButton">Italic</button>
         <input type="color" id="colorPicker">
@@ -60,39 +82,38 @@
         <button id="size">size</button>
         <input type="number" value="16" id="fontNum">
         <select id="fontSelect">
-          <option value="Arial, sans-serif">Arial</option>
-          <option value="'Times New Roman', serif">Times New Roman</option>
-          <option value="'Courier New', monospace">Courier New</option>
-          <option value="'Montserrat', sans-serif">Montserrat</option>
-          <option value="'Charm', cursive">Charm</option>
-          <option value="'Poppins', sans-serif">Poppins</option>
-          <option value="'Roboto', sans-serif">Roboto</option>
+          <option value="Arial, sans-serif"
+          style="font-family: 'Arial', sans-serif;">Arial</option>
+          <option value="'Times New Roman', serif"
+          style="font-family: 'Times New Roman', serif;">Times New Roman</option>
+          <option value="'Courier New', monospace"
+          style="font-family: 'Courier New', monospace;">Courier New</option>
+          <option value="'Montserrat', sans-serif"
+          style="font-family: 'Montserrat', sans-serif;">Montserrat</option>
+          <option value="'Charm', cursive" 
+          style="font-family: 'Charm', cursive;">Charm</option>
+          <option value="'Poppins', sans-serif;"
+          style="font-family: 'Poppins', sans-serif;">Poppins</option>
+          <option value="'Roboto', sans-serif;"
+          style="font-family: 'Roboto', sans-serif;">Roboto</option>
         </select>
         <div class="editor" contenteditable="true">
           <p>test</p>
-  
+
         </div>
-  
+
       </div>
 
     </div>
-    
+
     <!-- /* ////////////////////////////////////////// */ -->
-    <div class="drag">
-      <div class="wrapper" >
-        <ul class="dropzone" id="targetid" >
-          <!-- <li draggable="true" >
-            <p>5</p>
-          
-          </li>
-          <li draggable="true">
-            <p>6</p>
-          
-          </li> -->
-        </ul>
-        <ul class="dropzone"></ul>
-      </div>
+
+    <div class="wrapper">
+      <ul class="dropzone" id="targetid"> </ul>
+
+
     </div>
+
     <div class="taskformdiv">
       <form id="taskforum" class="taskform">
         <label for="taskname">Task</label>
@@ -102,6 +123,8 @@
     </div>
 
   </div>
+
+
 
 
 
